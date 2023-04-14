@@ -10,10 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity
+@Entity(name = "categoria")
 public class Categoria implements Serializable{
 
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +27,10 @@ public class Categoria implements Serializable{
     public Categoria() {
     }
 
-    public Categoria(Integer id, String nome, String descricao, List<Livro> livro) {
+    public Categoria(Integer id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.livro = livro;
     }
 
     public Integer getId() {
