@@ -12,7 +12,7 @@ import com.project.bookstore.repositories.LivroRepository;
 
 @Service
 public class DBService {
-
+	
     @Autowired
 	private CategoriaRepository categoriaRepository;
 	@Autowired
