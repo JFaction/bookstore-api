@@ -6,17 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.bookstore.domain.Categoria;
+import com.project.bookstore.exceptions.ObjectNotFoundException;
 import com.project.bookstore.repositories.CategoriaRepository;
 
 @Service
 public class CategoriaService {
-    
+
     @Autowired
     private CategoriaRepository repository;
 
-    public Categoria findById(Integer id){
+    public Categoria findById(Integer id) {
         Optional<Categoria> obj = repository.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
+                "Objeto não encontrado! Id:" + id + ", Tipo: " + Categoria.class.getName()));
     }
 
 }
