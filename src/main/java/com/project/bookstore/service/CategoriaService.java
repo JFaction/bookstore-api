@@ -26,4 +26,9 @@ public class CategoriaService {
         return repository.findAll();
     }
 
+    public Categoria create(Categoria obj){
+        obj.setId(null); //setar o Id como nulo para não ter problema na hora de fazer a inserção no BD
+        return repository.save(obj);
+    }
+
 }
